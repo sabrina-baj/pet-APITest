@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "b332ac11-61fb-4dcb-8c17-d459b7fa0eda",
+		"name": "Delete Existing Pets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42424925"
+	},
+	"item": [
+		{
+			"name": "Delete an Existing Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{Pet_Store}}/200"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Non-Existing Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The Pet doesn't Exist. The Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{Pet_Store}}/500"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Pet with Invalid ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The ID is not Valid. The Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{Pet_Store}}/id"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Pet Which is Already Deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The User was not Found.The Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{Pet_Store}}/200"
+			},
+			"response": []
+		}
+	]
+}

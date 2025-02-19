@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "74d6abad-aed5-4367-b276-2010cefca6a2",
+		"name": "Creating Different Pets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42424925"
+	},
+	"item": [
+		{
+			"name": "New Pet with All Valid Fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Pet Created Successfully. The Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 200,\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dog\"\n  },\n  \"name\": \"Milo\",\n  \"photoUrls\": [\n    \"\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"Friendly\"\n    }\n  ],\n  \"status\": \"Sold\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "New Pet with Only Required Fields (No Optional Fields)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Pet Created Successfully. The Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 44\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Pet with Multiple Tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Pet Created with Multiple Tags. The Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 44,\n    \"category\": {\n        \"id\": 2,\n        \"name\": \"Cat\"\n    },\n    \"name\": \"Gardfield\",\n    \n    \"tags\": [\n        {\n            \"id\": 1,\n            \"name\": \"Cute\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Playful\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Friendly\"\n        }\n    ],\n    \"status\": \"Available\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Pet with Invalid Data Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Something Went Wrong. The Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"invalid_id\",\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Bird\"\n    },\n    \"name\": \"Tweety\",\n    \"photoUrls\": [\n        \"string\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Pet with no Pet id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Something Went Wrong. The Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": ,\n  \"category\": {\n    \"id\": 2,\n    \"name\": \"Cat\"\n  },\n  \"name\": \"Happy\",\n  \"photoUrls\": [\n    \"\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"Friendly\"\n    }\n  ],\n  \"status\": \"Sold\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Pet with Existing Pet ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"There was a Conflict.The Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 200,\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dog\"\n  },\n  \"name\": \"Duplicate Name Milo\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"Friendly\"\n    }\n  ],\n  \"status\": \"Sold\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}/200"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Pet with ID Missing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The Pet was not Created. The Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"\" ,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Fish\"\n    },\n    \"name\": \"Nemo\",\n    \"photoUrls\": [\n        \"\"\n    ],\n    \"status\": \"invalid\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Pet with Special Characters in Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Pet was created Successfully.The Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 9,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dog\"\n    },\n    \"name\": \"R0$t#R\",\n    \n    \"status\": \"Available\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Pet_Store}}"
+			},
+			"response": []
+		}
+	]
+}
