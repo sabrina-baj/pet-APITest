@@ -11,7 +11,7 @@
     <p>The collection utilizes <strong>environment variables</strong> to handle dynamic API values such as base URLs and authentication tokens.</p>
     <h2>Environment Variables</h2>
     <p>The collection uses the following environment variables. These variables can be set up in your Postman environment:</p>
-    <table class="table">
+    <table>
         <thead>
             <tr>
                 <th>Variable Name</th>
@@ -45,14 +45,12 @@
             <li><strong>Method</strong>: GET</li>
             <li><strong>Description</strong>: Fetches a resource using its ID</li>
         </ul>
-    <div class="method-block">
         <h3>Update Operation (PUT)</h3>
         <ul>
             <li><strong>Request Name</strong>: Update Existing Pets</li>
             <li><strong>Method</strong>: PUT</li>
             <li><strong>Description</strong>: Updates an existing resource using its ID</li>
         </ul>
-    </div>
         <h3>Delete Operation (DELETE)</h3>
         <ul>
             <li><strong>Request Name</strong>: Delete Existing Pets</li>
