@@ -35,25 +35,25 @@
    <h2>Collection Overview</h2>
             <h3>Create Operation (POST)</h3>
         <ul>
-            <li><strong>Request Name</strong>: Creating Different Pets</li>
+            <li><strong>Collection Name</strong>: Creating Different Pets</li>
             <li><strong>Method</strong>: POST</li>
             <li><strong>Description</strong>: Sends a request to create a new resource in the system</li>
         </ul>
         <h3>View Operation (GET)</h3>
         <ul>
-            <li><strong>Request Name</strong>: Fetch Different Pets</li>
+            <li><strong>Collection Name</strong>: Fetch Different Pets</li>
             <li><strong>Method</strong>: GET</li>
             <li><strong>Description</strong>: Fetches a resource using its ID</li>
         </ul>
         <h3>Update Operation (PUT)</h3>
         <ul>
-            <li><strong>Request Name</strong>: Update Existing Pets</li>
+            <li><strong>Collection Name</strong>: Update Existing Pets</li>
             <li><strong>Method</strong>: PUT</li>
             <li><strong>Description</strong>: Updates an existing resource using its ID</li>
         </ul>
         <h3>Delete Operation (DELETE)</h3>
         <ul>
-            <li><strong>Request Name</strong>: Delete Existing Pets</li>
+            <li><strong>Collection Name</strong>: Delete Existing Pets</li>
             <li><strong>Method</strong>: DELETE</li>
             <li><strong>Description</strong>: Deletes a resource by its ID</li>
         </ul>
